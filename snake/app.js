@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     squares[appleIndex].classList.add('apple')
   }
 
-
   //assign functions to keycodes
   function control(e) {
     squares[currentIndex].classList.remove('snake')
