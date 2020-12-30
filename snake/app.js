@@ -29,6 +29,23 @@ document.addEventListener('DOMContentLoaded', () => {
     interval = setInterval(moveOutcomes, intervalTime)
   }
 
+  // function for all outcomes
+  function moveOutcomes() {
+    // deals with snake hitting border
+    if (
+      (currentSnake[0] + width >= (width * width) && direction === width) || // if snake hits bottom
+      (currentSnake[0] % width === width -1 && direction === 1) || // snake hits right wall
+      (currentSnake[0] % width === 0 && direction === -1) || // snake hits left wall
+      (currentSnake[0] - width < 0 && direction === -width) ||
+      squares[currentSnake[0] + direction].classList.contains('snake') // if snake  head hits body
+    ) {
+      return clearInterval(interval) // clear interval if above scenarios happen
+    }
+    //deals with snake eating apple
+
+  }
+
+
   //assign functions to keycodes
   function control(e) {
     squares[currentIndex].classList.remove('snake')
