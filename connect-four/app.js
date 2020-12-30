@@ -44,25 +44,27 @@ document.addEventListener('DOMContentLoaded', () => {
       ];
       // take 4 values in each winningArrays and plug them into squares
       for(let y = 0; y < winningArrays.length; y++) {
-        const squares1 = squares[winningArrays[y][0]]
-        const squares2 = squares[winningArrays[y][1]]
-        const squares3 = squares[winningArrays[y][2]]
-        const squares4 = squares[winningArrays[y][3]]
+        const square1 = squares[winningArrays[y][0]]
+        const square2 = squares[winningArrays[y][1]]
+        const square3 = squares[winningArrays[y][2]]
+        const square4 = squares[winningArrays[y][3]]
 
         //check winningArrays to see if they have the class of player-one
-        if(squares1.classList.contains('player-one')
-        && squares2.classList.contains('player-one')
-        && squares3.classList.contains('player-one')
-        && squares4.classList.contains('player-one)) {
+        if(square1.classList.contains('player-one') && square2.classList.contains('player-one')
+        && square3.classList.contains('player-one')
+        && square4.classList.contains('player-one'))
+        {
           // if so, player one is the winner
           result.innerHTML = 'Player One Wins!'
         }
-        else if (squares1.classList.contains('player-two')
-        && squares2.classList.contains('player-two')
-        && squares3.classList.contains('player-two')
-        && squares4.classList.contains('player-two)) {
-          result.innerHTML = 'Player Two Wins'
+        else if (square1.classList.contains('player-two')
+        && square2.classList.contains('player-two')
+        && square3.classList.contains('player-two')
+        && square4.classList.contains('player-two')) {
+          result.innerHTML = 'Player Two Wins!'
         }
       }
     }
+
+  squares.forEach(square => square.addEventListener('click', checkBoard))
 })
