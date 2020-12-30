@@ -13,6 +13,22 @@ document.addEventListener('DOMContentLoaded', () => {
   let intervalTime = 0
   let interval = 0
 
+  //start and restart game
+  function startGame() {
+    currentSnake.forEach(index => squares[index].classList.remove('snake'))
+    squares[appleIndex].classList.remove('apple')
+    clearInterval(interval)
+    score = 0
+    //randomApple()
+    direction = 1
+    scoreDisplay.innerText = score
+    intervalTime = 1000
+    currentSnake = [2, 1, 0]
+    currentIndex = 0
+    currentSnake.forEach(index => squares[index].classList.add('snake'))
+    interval = setInterval(moveOutcomes, intervalTime)
+  }
+
   //assign functions to keycodes
   function control(e) {
     squares[currentIndex].classList.remove('snake')
