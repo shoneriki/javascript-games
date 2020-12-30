@@ -41,6 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ) {
       return clearInterval(interval) // clear interval if above scenarios happen
     }
+
+    const tail = currentSnake.pop() //removes last element in array
+    squares[tail].classList.remove('snake') // removes snake class from tail
+    currentSnake.unshift(currentSnake[0] + direction) //gives direction to head of array
     //deals with snake eating apple
 
   }
