@@ -22,11 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ]
 
-  //draw the alien invaders
+  //alien invaders appearance
   alienInvaders.forEach( invader => squares[currentInvaderIndex + invader].classList.add("invader"))
-  //draw the fighter
+  //defender appearance
   squares[currentShooterIndex].classList.add("shooter")
-  //move fighter horizontally
+  //move defender horizontally
     function moveShooter(e) {
     squares[currentShooterIndex].classList.remove("shooter")
     // keys for moving player horizontally left(37) and right(39)
@@ -79,8 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if(alienInvadersTakenDown.length === alienInvaders.length) {
-      console.log(alienInvadersTakenDown.length)
-      console.log(alienInvaders.length)
       resultDisplay.textContent = "You Win"
       clearInterval(invaderId)
     }
