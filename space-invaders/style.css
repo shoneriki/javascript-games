@@ -3,7 +3,8 @@
 .grid {
   background-image: url("space-background.jpg");
   background-size: cover;
-  background-color: lightgrey;
+  opacity: 1;
+  filter: (100%);
   display: flex;
   flex-wrap: wrap;
   border: solid 1px;
@@ -17,14 +18,19 @@
 }
 
 .shooter {
-  background-color: red;
+  background-color: green;
 }
 
 .invader {
-  background-color: white;
+  background-color: gray;
   border-radius: 10px;
 }
 
 .boom {
   background-color: #ffac24;
+}
+
+.laser {
+  background-color:red;
+
 }
