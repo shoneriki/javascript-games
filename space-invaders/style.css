@@ -1,7 +1,7 @@
 
 
 .grid {
-  background-image: url("space-background.jpg");
+  background-image: url("images/space-background.jpg");
   background-size: cover;
   filter: (100%);
   display: flex;
@@ -17,13 +17,14 @@
 }
 
 .shooter {
-  background-color: green;
+  background-image: url("images/spaceship.png");
+  background-size: cover;
 }
 
 .invader {
-  background-image: url("haunting.png");
+  background-image: url("images/tie-fighter.png");
   background-size: cover;
-  background-color: gray;
+  background-color: transparent;
 }
 
 .boom {
