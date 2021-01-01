@@ -77,6 +77,13 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(invaderId)
       }
     }
+
+    if(alienInvadersTakenDown.length === alienInvaders.length) {
+      console.log(alienInvadersTakenDown.length)
+      console.log(alienInvaders.length)
+      resultDisplay.textContent = "You Win"
+      clearInterval(invaderId)
+    }
   }
   invaderId = setInterval(moveInvaders, 500)
 
