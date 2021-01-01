@@ -3,7 +3,6 @@
 .grid {
   background-image: url("space-background.jpg");
   background-size: cover;
-  opacity: 1;
   filter: (100%);
   display: flex;
   flex-wrap: wrap;
@@ -22,8 +21,9 @@
 }
 
 .invader {
+  background-image: url("haunting.png");
+  background-size: cover;
   background-color: gray;
-  border-radius: 10px;
 }
 
 .boom {
@@ -32,5 +32,4 @@
 
 .laser {
   background-color:red;
-
 }
