@@ -63,7 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
       squares[alienInvaders[i]].classList.add("invader")
     }
 
-  
+    //game over logic
+    if(squares[currentShooterIndex].classList.contains("invader", "shooter")) {
+      resultDisplay.textContent = "Game Over"
+      squares[currentShooterIndex].classList.add("boom")
+      clearInterval(invaderId)
+    }
 
     }
   }
