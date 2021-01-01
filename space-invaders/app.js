@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //draw the alien invaders
   alienInvaders.forEach( invader => squares[currentInvaderIndex + invader].classList.add("invader"))
-  //draw the shooter
+  //draw the fighter
   squares[currentShooterIndex].classList.add("shooter")
+  //move fighter horizontally
+
 })

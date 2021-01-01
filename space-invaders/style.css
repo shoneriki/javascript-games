@@ -32,5 +32,12 @@
 }
 
 .laser {
-  background-color:red;
+  background-image: url("images/missiles.png");
+  background-size: cover;
+  background-color: transparent;
+}
+
+
+.attribute{
+  font-size: 8px;
 }
