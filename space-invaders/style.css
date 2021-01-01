@@ -17,14 +17,14 @@
 }
 
 .shooter {
-  background-color: blue;
+  background-color: red;
 }
 
 .invader {
-  background-color: purple;
+  background-color: white;
   border-radius: 10px;
 }
 
 .boom {
-  background-color: red;
+  background-color: #ffac24;
 }
