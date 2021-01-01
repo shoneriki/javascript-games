@@ -1,5 +1,5 @@
-// lasers being shot from cannon, moves vertically, bottom to up
-// lasers make enemies off screen when hit
+
+// lasers kill invader and adds to score
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let laserId
     let currentLaserIndex = currentShooterIndex
 
-    //move laser from shooter to invader
+    // lasers being shot from cannon, moves vertically, bottom to up
     function moveLaser() {
       squares[currentLaserIndex].classList.remove("laser")
       currentLaserIndex -= width
@@ -95,7 +95,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => squares[currentLaserIndex].classList.remove("boom"), 250)
         clearInterval(laserId)
+
+        const alienInvadersTakenDown = alienInvaders.indexOf(currentLaserIndex)
+        alienInvadersTakenDown.push(alienInvadersTakenDown)
+        result++
+        resultDisplay.textContent = result
+      }
+
+      if(currentLaserIndex < width) {
+        clearInterval(laserId)
+        setTimeout(() => squares[currentLaserIndex].classList.remove("laser"), 100)
       }
     }
+
+    
   }
 })
