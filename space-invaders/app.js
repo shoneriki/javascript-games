@@ -1,7 +1,3 @@
-
-// lasers kill invader and adds to score
-
-
 document.addEventListener("DOMContentLoaded", () => {
   //select spaces, result
   const squares = document.querySelectorAll(".grid div")
