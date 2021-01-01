@@ -1,4 +1,3 @@
-// keys for moving player horizontally left and right
 // cannon controlled by player
 // lasers being shot from cannon, moves vertically, bottom to up
 // lasers make enemies off screen when hit
@@ -29,5 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
   //draw the fighter
   squares[currentShooterIndex].classList.add("shooter")
   //move fighter horizontally
-
+    function moveShooter(e) {
+    squares[currentShooterIndex].classList.remove("shooter")
+    // keys for moving player horizontally left(37) and right(39)
+    switch(e.keyCode) {
+      case 37:
+        if(currentShooterIndex % width !== 0) currentShooterIndex -= 1
+      case 39:
+        if(currentShooterIndex % width < width -1) currentShooterIndex += 1
+        break
+    }
+    squares[currentShooterIndex].classList.add("shooter")
+    }
 })
