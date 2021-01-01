@@ -53,14 +53,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (leftEdge) direction = 1
       else direction = -1
     }
-    for (let i=0; i <= alienInvaders.length -1; i++) {
+    for (let i = 0; i <= alienInvaders.length - 1; i++) {
       squares[alienInvaders[i]].classList.remove("invader")
     }
-    for (let i=0; i <= alienInvaders.length -1; i++) {
+    for (let i = 0; i <= alienInvaders.length - 1; i++) {
       alienInvaders[i] += direction
     }
-    for (let i=0; i <= alienInvaders.length -1; i++) {
-      squares[alienInvaders[i]].classList.add("invader")
+    for (let i = 0; i <= alienInvaders.length - 1; i++) {
+      if (!alienInvadersTakenDown.includes(i)) {
+        squares[alienInvaders[i]].classList.add("invader")
+      }
     }
 
     //game over logic
@@ -96,8 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => squares[currentLaserIndex].classList.remove("boom"), 250)
         clearInterval(laserId)
 
-        const alienInvadersTakenDown = alienInvaders.indexOf(currentLaserIndex)
-        alienInvadersTakenDown.push(alienInvadersTakenDown)
+        const alienTakenDown = alienInvaders.indexOf(currentLaserIndex)
+        alienInvadersTakenDown.push(alienTakenDown)
         result++
         resultDisplay.textContent = result
       }
@@ -108,6 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    
+    switch(e.keyCode) {
+      case 32:
+        laserId = setInterval(moveLaser, 100)
+        break
+    }
   }
+  document.addEventListener("keyup", shoot)
 })
