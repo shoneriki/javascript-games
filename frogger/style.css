@@ -1,17 +1,45 @@
+body {
+  background: url("images/forest.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#button {
+  border-radius: 10px;
+  background-color: lightblue;
+}
+
+#button:hover {
+  background-color: #8d8741;
+  cursor: pointer;
+}
 
 
 .grid {
-  background-image: url("images/bg.jpg");
-  background-size: cover;
-  filter: (100%);
+  /* background-image: url("images/bg.jpg");
+  background-size: cover; */
+  border: 5px solid transparent;
+  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+  border-image-slice: 1;
   display: flex;
+  filter: (100%);
   flex-wrap: wrap;
-  border: solid 1px;
-  width: 300px;
-  height: 300px;
+  width: 180px;
+  height: 180px;
 }
 
 .grid div {
   width:20px;
   height:20px;
+}
+
+.ending-block {
+  background-color:red;
+}
+
+.starting-block {
+  background-color: blue;
+}
+
+.frog {
+  background-color: green;
 }
