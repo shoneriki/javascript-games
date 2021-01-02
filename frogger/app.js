@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const timeLeft = document.querySelector('#time-left')
   const result = document.querySelector('#result')
   const startBtn = document.querySelector('#button')
+  const carsLeft = document.querySelector('.cars-left')
+  const carsRight = document.querySelector('.cars-right')
+  const logsLeft = document.querySelector('.log-left')
+  const logsRight = document.querySelector('.log-right')
   const width = 9
   let currentIndex = 76
   let timerId
@@ -32,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     win()
   }
 
-
+  //move cars
+  
 
 })

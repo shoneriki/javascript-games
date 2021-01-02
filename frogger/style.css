@@ -30,9 +30,9 @@ a {
 
 
 .grid {
-  /* background-image: url("images/bg.jpg");
-  background-size: cover; */
-  background-color: lightgrey;
+  background-image: url("images/grid-bg.jpg");
+  background-size: cover;
+  background-color: transparent;
   border: 5px solid transparent;
   border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
   border-image-slice: 1;
@@ -62,4 +62,20 @@ a {
   background-image: url("images/frog.png");
   background-size: cover;
   background-color: transparent;
+}
+
+.c1 {
+  background-color: black;
+}
+
+.c2, .c3 {
+  background-color: grey;
+}
+
+.l1, .l2, .l3 {
+  background-color: brown;
+}
+
+.l4, .l5 {
+  background-color:lightblue;
 }
