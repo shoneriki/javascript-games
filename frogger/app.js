@@ -46,15 +46,15 @@ document.addEventListener('DOMContentLoaded', () => {
   //move cars left
   function moveCarLeft(carLeft) {
     switch (true) {
-      case carLeft.classList.remove('c1'):
+      case carLeft.classList.contains('c1'):
       carLeft.classList.remove('c1')
       carLeft.classList.add('c2')
       break
-      case carLeft.classList.remove('c2'):
+      case carLeft.classList.contains('c2'):
       carLeft.classList.remove('c2')
       carLeft.classList.add('c3')
       break
-      case carLeft.classList.remove('c3'):
+      case carLeft.classList.contains('c3'):
       carLeft.classList.remove('c3')
       carLeft.classList.add('c1')
       break
@@ -64,15 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
   //move cars right
   function moveCarRight(carRight) {
     switch (true) {
-      case carRight.classList.remove('c1'):
+      case carRight.classList.contains('c1'):
       carRight.classList.remove('c1')
       carRight.classList.add('c3')
       break
-      case carRight.classList.remove('c2'):
+      case carRight.classList.contains('c2'):
       carRight.classList.remove('c2')
       carRight.classList.add('c1')
       break
-      case carRight.classList.remove('c3'):
+      case carRight.classList.contains('c3'):
       carRight.classList.remove('c3')
       carRight.classList.add('c2')
       break
