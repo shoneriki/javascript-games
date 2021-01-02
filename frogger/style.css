@@ -1,0 +1,17 @@
+
+
+.grid {
+  background-image: url("images/bg.jpg");
+  background-size: cover;
+  filter: (100%);
+  display: flex;
+  flex-wrap: wrap;
+  border: solid 1px;
+  width: 300px;
+  height: 300px;
+}
+
+.grid div {
+  width:20px;
+  height:20px;
+}
