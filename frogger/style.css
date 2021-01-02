@@ -55,7 +55,10 @@ a {
 }
 
 .starting-block {
-  background-color: green;
+  background-image: url("images/lily-end.png");
+  background-size: cover;
+  background-color: transparent;
+  /* background-color: green; */
 }
 
 .frog {
