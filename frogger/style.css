@@ -1,7 +1,22 @@
 body {
   background: url("images/woods.jpg") no-repeat center center fixed;
   background-size: cover;
+  color: white;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
+
+.attributes {
+  size: 8px;
+  color: white;
+  text-shadow: black 0px 0px 10px;
+}
+a {
+  color: white;
+  text-shadow: black 0px 0px 10px;
+}
+
 
 #button {
   border-radius: 10px;
@@ -34,13 +49,17 @@ body {
 }
 
 .ending-block {
-  background-color:red;
+  background-image: url("images/lily-end.png");
+  background-size: cover;
+  background-color: transparent;
 }
 
 .starting-block {
-  background-color: blue;
+  background-color: green;
 }
 
 .frog {
-  background-color: green;
+  background-image: url("images/frog.png");
+  background-size: cover;
+  background-color: transparent;
 }

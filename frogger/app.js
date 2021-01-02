@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 9
   let currentIndex = 76
 
+  //frog on starting block
+  squares[currentIndex].classList.add("frog")
 
 
 })
