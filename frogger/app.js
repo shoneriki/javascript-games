@@ -155,4 +155,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.removeEventListener('keyup', moveFrog)
   }
 
+  //move frog with log left
+  function moveWithLogLeft() {
+    if (currentIndex >= 27 && currentIndex < 35) {
+      squares[currentIndex].classList.remove('frog')
+      currentIndex += 1
+      squares[currentIndex].classList.add('frog')
+    }
+  }
+
+  //move frog with log right
+  function moveWithLogRight() {
+    if (currentIndex > 18 && currentIndex <= 26) {
+      squares[currentIndex].classList.remove('frog')
+      currentIndex -= 1
+      squares[currentIndex].classList.add('frog')
+    }
+  }
 })
