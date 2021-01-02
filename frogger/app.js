@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const logsRight = document.querySelector('.log-right')
   const width = 9
   let currentIndex = 76
+  let currentTime = 20
   let timerId
 
   //frog on starting block
@@ -76,6 +77,82 @@ document.addEventListener('DOMContentLoaded', () => {
         carRight.classList.add('c2')
         break
     }
+  }
+
+  //move logs
+  function autoMoveLogs() {
+    logsLeft.forEach(logLeft => moveLogLeft(logLeft))
+    logsRight.forEach(logsRight => moveLogRight(logRight))
+  }
+
+    //move logs left
+  function moveLogLeft(logLeft) {
+    switch (true) {
+      case logLeft.classList.remove('l1'):
+        logLeft.classList.remove('l1')
+        logLeft.classList.add('l2')
+        break
+      case logLeft.classList.remove('l2'):
+        logLeft.classList.remove('l2')
+        logLeft.classList.add('l3')
+        break
+      case logLeft.classList.remove('l3'):
+        logLeft.classList.remove('l3')
+        logLeft.classList.add('l4')
+        break
+      case logLeft.classList.remove('l4'):
+        logLeft.classList.remove('l4')
+        logLeft.classList.add('l5')
+        break
+      case logLeft.classList.remove('l5'):
+        logLeft.classList.remove('l5')
+        logLeft.classList.add('l1')
+        break
+    }
+  }
+
+  //move cars right
+  function moveLogRight(logRight) {
+    switch (true) {
+      case logRight.classList.remove('l1'):
+        logRight.classList.remove('l1')
+        logRight.classList.add('l5')
+        break
+      case logRight.classList.remove('l2'):
+        logRight.classList.remove('l2')
+        logRight.classList.add('l1')
+        break
+      case logRight.classList.remove('l3'):
+        logRight.classList.remove('l3')
+        logRight.classList.add('l2')
+        break
+      case logRight.classList.remove('l4'):
+        logRight.classList.remove('l4')
+        logRight.classList.add('l3')
+        break
+      case logRight.classList.remove('l5'):
+        logRight.classList.remove('l5')
+        logRight.classList.add('l4')
+        break
+    }
+  }
+
+  //rules to win game
+  function win() {
+    if (squares[4].classList.contains('frog')) {
+      result.innerHTML = 'YOU WON'
+      squares[currentIndex].classList.remove('frog')
+      clearInterval(timerId)
+      document.removeEventListener('keyup', moveFrog)
+    }
+  }
+
+  //rules to lose game
+  if ((currentTime === 0) || (squares[currentIndex].classList.contains('c1')) || (squares[currentIndex].classList.contains('l5')) || (squares[currentIndex].classList.contains('l4'))) {
+    result.innerHTML = 'YOU LOSE'
+    squares[currentIndex].classList.remove('frog')
+    clearInterval(timerId)
+    document.removeEventListener('keyup', moveFrog)
   }
 
 })
