@@ -22,5 +22,16 @@ body {
 }
 
 #block {
-  
+  width: 20px;
+  height: 20px;
+  background: blue;
+  position: relative;
+  top: 130px;
+  left: 380px;
+  animation: block 1s infinite;
+}
+
+@keyframes block{
+  0%{left:480px;}
+  100%{left:-40px}
 }
