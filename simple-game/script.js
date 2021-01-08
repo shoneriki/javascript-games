@@ -1,5 +1,6 @@
 const character = document.getElementById("character");
 const block = document.getElementById("block")
+const refreshButton = document.querySelector("#reload");
 
 function jump() {
   if(character.classList != "animate"){
@@ -22,3 +23,9 @@ const checkDead = setInterval(function() {
     alert("You lost!");
   }
 },10);
+
+function reload() {
+  reload = location.reload();
+}
+
+reloadButton.addEventListener("click", reload, false);
