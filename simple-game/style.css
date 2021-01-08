@@ -4,6 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: #D3D3D3;
 }
 
 
@@ -11,7 +12,8 @@ body {
   width: 400px;
   height: 200px;
   border: 1px solid black;
-  
+  background-image: url("images/bg.jpg");
+  background-size: cover;
 }
 
 #character {
