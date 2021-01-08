@@ -20,7 +20,6 @@ body {
   background-size: cover;
   position: relative;
   top: 150px;
-  animation: jump 500ms infinite;
 }
 
 #block {
@@ -33,6 +32,10 @@ body {
   top: 130px;
   left: 380px;
   animation: block 1s infinite linear;
+}
+
+.animate {
+  animation: jump 500ms;
 }
 
 @keyframes jump{
