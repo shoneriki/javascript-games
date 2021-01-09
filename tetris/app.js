@@ -6,6 +6,7 @@ let squares = Array.from(grid.querySelectorAll('div'))
 const width = 10
 const height = 20
 let currentPosition = 4
+let timerId =
 
 // assign functions to keycodes
 function control(e) {
@@ -144,7 +145,32 @@ const smallTetrominoes = [
     })
   }
 
-  displayShape()
+  //freeze shape
 
+  function freeze() {
+    if(current.some(index => squares[currentPosition + index + width].classList.contains('block3')
+    || squares[currentPosition + index + width].classList.contains('block2'))) {
+      current.forEach(index => squares[index + currentPosition].classList.add('block2'))
+
+      random = nextRandom
+      nextRandom = Math.floor(Math.random() * theTetrominoes.length)
+      current = theTetrominoes[random][currentRotation]
+      currentPosition = 4
+      draw()
+      displayShape()
+    }
+  }
+
+startBtn.addEventListener('click', () => {
+  if(timerId) {
+    clearInterval(timerId)
+    timerId = null
+  } else {
+    draw()
+    timerId = setInterval(moveDown, 1000)
+    nextRandom = Math.floor(Math.random()*theTetrominoes.length)
+    displayShape()
+  }
+})
 
 })
