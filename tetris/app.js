@@ -1,9 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+
 const grid = document.querySelector(".grid")
 let squares = Array.from(grid.querySelectorAll('div'))
 const width = 10
 const height = 20
 let currentPosition = 4
+
+// assign functions to keycodes
+function control(e) {
+  if(e.KeyCode === 39) {
+    moveRight()
+  } else if (e.KeyCode === 38) {
+    rotate()
+  } else if (e.KeyCode === 37) {
+    moveLeft()
+  } else if (e.KeyCode === 40) {
+    moveDown()
+  }
+}
+
+document.addEventListener('keyup', control)
+
 
 // tetris pieces or tetrominoes
   const lTetromino = [
@@ -45,13 +62,66 @@ let currentPosition = 4
 
   //randomly select tetris pieces
 
-  let random = Math.floor(Math.random()*theTetrominoes.length)
+  let random = Math.floor(Math.random() * theTetrominoes.length)
   let currentRotation = 0
   let current = theTetrominoes[random][currentRotation]
+
+//draw shape
+function draw() {
+  current.forEach( index => {
+    squares[currentPosition + index].classList.add('block')
+  })
 }
 
-//move piece down every second
+//undraw shape
+function undraw() {
+  current.forEach(index => {
+    squares[currentPosition + index].classList.remove('block')
+  })
+}
+
+//move shape down
+function moveDown() {
+  undraw()
+  currentPosition = currentPosition += width
+  draw()
+  freeze()
+}
 
 
+function moveRight() {
+  undraw()
+  const isAtRightEdge = current.some(index => (currentPosition + index) % width === width - 1)
+  if(!isAtRightEdge) currentPosition += 1
+  if (current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
+    currentPosition -= 1
+  }
+  draw()
+}
 
-)
+function moveLeft() {
+  undraw()
+  const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0)
+  if(!isAtLeftEdge) currentPosition -= 1
+  if(current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
+    currentPosition += 1
+  }
+  draw()
+}
+
+function rotate() {
+  undraw()
+  currentRotation ++
+  if(currentRotation === current.length) {
+    currentRotation = 0
+  }
+  current = theTetrominoes[random][currentRotation]
+  draw()
+}
+
+draw()
+
+//move pieces down every second
+
+
+})
