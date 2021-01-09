@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+const startBtn = document.querySelector('button')
 const grid = document.querySelector('.grid')
 const displaySquares = document.querySelectorAll('.previous-grid div')
 let squares = Array.from(grid.querySelectorAll('div'))
 const width = 10
 const height = 20
 let currentPosition = 4
-let timerId =
+let timerId
 
 // assign functions to keycodes
 function control(e) {
-  if(e.keyCode === 39)
+  if (e.keyCode === 39)
     moveRight()
   else if (e.keyCode === 38)
     rotate()
