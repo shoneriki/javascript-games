@@ -1,8 +1,8 @@
 const holes = document.querySelectorAll('.hole');
-const scoreBoard = document.querySelector('score')
-const mole = document.querySelectorAll('mole');
+const scoreBoard = document.querySelector('.score')
+const mole = document.querySelectorAll('.mole');
 const countdownBoard = document.querySelector('.countdown');
-const startButton = document.querySelector('startButton');
+const startButton = document.querySelector('.startButton');
 
 let lastHole;
 let timeUp = false;
@@ -28,5 +28,26 @@ function popOut(){
     if(!timeUp) popOut();
   }, time);
 }
+function startGame() {
+  countdown = timeLimit/1000;
+  scoreBoard.textContent = 0;
+  scoreBoard.style.display = 'block'
+  countdownBoard.textContent = countdown;
+  timeUp = false;
+  score = 0;
+  popOut();
+  setTimeout(function(){
+    timeUp = true;
+  }, timeLimit);
 
-popOut();
+  let startCountdown = setInterval(function(){
+    countdown -= 1;
+    countdownBoard.textContent = countdown;
+    if (countdown < 0) {
+      countdown = 0;
+      clearInterval(startCountdown);
+      countdownBoard.textContent = 'Times Up! Thank you for protecting our planet! This is the way!';
+    }
+  }, 1000);
+}
+startButton.addEventListener('click', startGame);
