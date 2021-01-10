@@ -1,6 +1,6 @@
 const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score')
-const mole = document.querySelectorAll('.mole');
+const moles = document.querySelectorAll('.mole');
 const countdownBoard = document.querySelector('.countdown');
 const startButton = document.querySelector('.startButton');
 
@@ -51,3 +51,13 @@ function startGame() {
   }, 1000);
 }
 startButton.addEventListener('click', startGame);
+
+function whack(e){
+  score++;
+  this.style.backgroundImage = 'url("images/yoda2.png")';
+  setTimeout(() => {
+    this.style.backgroundImage = 'url("images/yoda1.png)'
+  },800)
+}
+
+moles.forEach(mole => mole.addEventListener('click', whack));
