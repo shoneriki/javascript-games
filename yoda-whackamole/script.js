@@ -20,12 +20,12 @@ function pickRandomHole(holes) {
   return hole;
 }
 function popOut(){
-  const time = Math.random() * 1300 + 400;
+  const time = Math.random() * 1300 + 500;
   const hole = pickRandomHole(holes);
   hole.classList.add('up');
   setTimeout(function(){
     hole.classList.remove('up');
-    if(!timeUp) popOut();
+    if (!timeUp) popOut();
   }, time);
 }
 function startGame() {
