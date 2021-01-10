@@ -9,3 +9,14 @@ let timeUp = false;
 let timeLimit = 20000;
 let score = 0;
 let countdown;
+
+
+function pickRandomHole(holes) {
+  const randomHole = Math.floor(Math.random() * holes.length);
+  const hole = holes[randomHole];
+  if (hole === lastHole) {
+    return pickRandomHole(hole);
+  }
+  lastHole = hole;
+  return hole;
+}
