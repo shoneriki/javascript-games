@@ -88,7 +88,7 @@ button {
 .mole {
   background-image: url('images/yoda1.png');
   position: absolute;
-  top: 0;
+  top: 100%;
   width: 100%;
   height: 100%;
   transition: 0.4s;
@@ -102,4 +102,8 @@ button {
 
 .mole.large {
   background-size: 80%;
+}
+
+.hole.up  .mole{
+  top: 0;
 }
