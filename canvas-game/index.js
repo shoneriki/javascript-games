@@ -1,10 +1,10 @@
 const canvas = document.querySelector('canvas');
-const c = canvas.getContext('2d')
+const c = canvas.getContext('2d');
 
 canvas.width = innerWidth
 canvas.height = innerHeight
 
-// create player
+// => begin: create player
   //color
   //size
 class Player {
@@ -23,16 +23,15 @@ class Player {
     c.fill()
   }
 }
-// shoot
-  // x, y
+// => end player
 
+// => begin: laser
+  // x, y
     //velocity
       // x velocity, y velocity
         // get angle
           // put in atan
           // get x and y velocities
-
-
 class Laser {
   constructor(x, y, radius, color, velocity) {
     this.x = x
@@ -55,7 +54,9 @@ class Laser {
     this.y = this.y + this.velocity.y
   }
 }
+// => end laser
 
+//=> begin: create enemy
 class Enemy {
   constructor(x, y, radius, color, velocity) {
     this.x = x
@@ -80,11 +81,14 @@ class Enemy {
 }
 
 
+
 const x = canvas.width / 2
 const y = canvas.height / 2
 
 const player = new Player(x, y, 30, 'purple')
 const lasers = []
+
+
 const enemies = []
 
 function spawnEnemies() {
@@ -114,7 +118,7 @@ function spawnEnemies() {
     enemies.push(new Enemy(x, y, radius, color, velocity));
   }, 1000)
 }
-
+// => end create enemy
 
 function animate() {
   requestAnimationFrame(animate)
@@ -140,7 +144,6 @@ const laser = new Laser(
   )
 
 
-
 addEventListener('click', (event) => {
   const angle = Math.atan2(
     event.clientY - canvas.height / 2,
@@ -161,7 +164,7 @@ spawnEnemies()
 
 
 
-// create enemies
+
 // detect hit/ hit by bullet
 // detect hit on player
 // remove projectiles that are off-screen
