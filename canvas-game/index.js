@@ -62,8 +62,7 @@ const y = canvas.height / 2
 
 const player = new Player(x, y, 30, 'purple')
 
-player.draw()
-
+const lasers = []
 
 const laser = new Laser(
     canvas.width / 2,
@@ -77,12 +76,10 @@ const laser = new Laser(
   )
 
 
-
-  const lasers = []
-
-
 function animate() {
   requestAnimationFrame(animate)
+  c.clearRect(0, 0, canvas.width, canvas.height)
+  player.draw()
   lasers.forEach(laser =>{
     laser.update()
   })
