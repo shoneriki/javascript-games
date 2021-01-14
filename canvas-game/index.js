@@ -24,7 +24,14 @@ class Player {
   }
 }
 // shoot
-  // x, y, velocity
+  // x, y
+
+    //velocity
+      // x velocity, y velocity
+        // get angle
+          // put in atan
+          // get x and y velocities
+
 
 class Laser {
   constructor(x, y, radius, color, velocity) {
@@ -41,6 +48,11 @@ class Laser {
     c.fillStyle = this.color
     c.fill()
   }
+
+  update() {
+    this.x = this.x + this.velocity.x
+    this.y = this.y + this.velocity.y
+  }
 }
 
 
@@ -51,13 +63,30 @@ const player = new Player(x, y, 30, 'purple')
 
 player.draw()
 
+const laser = new Laser(
+    canvas.width / 2,
+    canvas.height / 2,
+    5,
+    'red',
+    {
+      x: 1,
+      y: 1,
+    }
+  )
+
+
+function animate() {
+  requestAnimationFrame(animate)
+  laser.draw()
+  laser.update()
+}
 
 addEventListener('click', (event) => {
-  const laser = new Laser(
-    event.clientX, event.clientY, 5, 'red', null
-  )
-  laser.draw()
+
 })
+
+animate()
+
 
 
 // create enemies
