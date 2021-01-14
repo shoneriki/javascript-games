@@ -93,13 +93,16 @@ function spawnEnemies() {
     const y = 100
     const radius = 30
     const color = 'green'
-    const velocity = {
-      x: 1,
-      y: 1
-    }
-    enemies.push(new Enemy(x, y, radius, color, velocity));
 
-    console.log(enemies)
+    const angle = Math.atan2(
+    canvas.height / 2 - y,
+    canvas.width / 2 - x
+  )
+  const velocity = {
+    x: Math.cos(angle),
+    y: Math.sin(angle)
+  }
+    enemies.push(new Enemy(x, y, radius, color, velocity));
   }, 1000)
 }
 
@@ -131,17 +134,17 @@ const laser = new Laser(
 
 addEventListener('click', (event) => {
   const angle = Math.atan2(
-  event.clientY - canvas.height / 2,
-  event.clientX - canvas.width / 2
-)
-const velocity = {
-  x: Math.cos(angle),
-  y: Math.sin(angle)
-}
-  lasers.push(new Laser(
-    canvas.width / 2, canvas.height / 2, 5, 'red',
-    velocity
-  ))
+    event.clientY - canvas.height / 2,
+    event.clientX - canvas.width / 2
+  )
+  const velocity = {
+    x: Math.cos(angle),
+    y: Math.sin(angle)
+  }
+    lasers.push(new Laser(
+      canvas.width / 2, canvas.height / 2, 5, 'red',
+      velocity
+    ))
 })
 
 animate()
