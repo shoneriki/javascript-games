@@ -23,7 +23,7 @@ class Player {
   }
 }
 
-const player = new Player(100, 100, 30, 'blue')
+const player = new Player(100, 100, 30, 'purple')
 
 player.draw()
 
