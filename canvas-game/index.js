@@ -85,7 +85,7 @@ class Enemy {
 const x = canvas.width / 2
 const y = canvas.height / 2
 
-const player = new Player(x, y, 30, 'purple')
+const player = new Player(x, y, 10, 'white')
 const lasers = []
 
 
@@ -168,7 +168,7 @@ const laser = new Laser(
     canvas.width / 2,
     canvas.height / 2,
     5,
-    'red',
+    'white',
     {
       x: 1,
       y: 1
@@ -182,8 +182,8 @@ addEventListener('click', (event) => {
     event.clientX - canvas.width / 2
   )
   const velocity = {
-    x: Math.cos(angle),
-    y: Math.sin(angle)
+    x: Math.cos(angle) * 4,
+    y: Math.sin(angle) * 4
   }
     lasers.push(new Laser(
       canvas.width / 2, canvas.height / 2, 5, 'red',
