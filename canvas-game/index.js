@@ -147,6 +147,8 @@ function animate() {
     enemy.update()
 
     const dist = Math.hypot(player.x - enemy.x, player.y - enemy.y)
+
+    //when laser touches
     if (dist - enemy.radius - player.radius < 1) {
       cancelAnimationFrame(animationId)
     }
@@ -155,10 +157,18 @@ function animate() {
       const dist = Math.hypot(laser.x - enemy.x, laser.y - enemy.y)
 
       if (dist - enemy.radius - laser.radius < 1) {
-        setTimeout(() => {
-          enemies.splice(index, 1)
-          lasers.splice(laserIndex, 1)
-        }, 0)
+
+        if (enemy.radius > 10) {
+          enemy.radius -= 10
+          setTimeout(() => {
+            lasers.splice(laserIndex, 1)
+          }, 0)
+        } else {
+          setTimeout(() => {
+            enemies.splice(index, 1)
+            lasers.splice(laserIndex, 1)
+          }, 0)
+        }
       }
     })
   })
@@ -198,9 +208,6 @@ spawnEnemies()
 
 
 
-// detect hit on player
-// remove projectiles that are off-screen
-// color game
 // shrink enemies when hit
 // create explosion for enemy when it dies
 // add score
