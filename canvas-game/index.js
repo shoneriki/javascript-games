@@ -92,7 +92,7 @@ const lasers = []
 const enemies = []
 
 function spawnEnemies() {
-  // setInterval(() => {
+  setInterval(() => {
     const radius = Math.random() * (30 - 5) + 5
 
     let x
@@ -116,7 +116,7 @@ function spawnEnemies() {
     y: Math.sin(angle)
   }
     enemies.push(new Enemy(x, y, radius, color, velocity));
-  // }, 1000)
+  }, 1000)
 }
 // => end create enemy
 
@@ -134,8 +134,10 @@ function animate() {
       const dist = Math.hypot(laser.x - enemy.x, laser.y - enemy.y)
 
       if (dist - enemy.radius - laser.radius < 1) {
-        enemies.splice(index, 1)
-        lasers.splice(laserIndex, 1) 
+        setTimeout(() => {
+          enemies.splice(index, 1)
+          lasers.splice(laserIndex, 1)
+        }, 0)
       }
     })
   })
