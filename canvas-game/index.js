@@ -127,6 +127,7 @@ function animate() {
   lasers.forEach(laser =>{
     laser.update()
   })
+  // detect hit/ hit by laser
   enemies.forEach((enemy, index) => {
     enemy.update()
 
@@ -176,7 +177,7 @@ spawnEnemies()
 
 
 
-// detect hit/ hit by bullet
+
 // detect hit on player
 // remove projectiles that are off-screen
 // color game
