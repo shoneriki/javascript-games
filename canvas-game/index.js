@@ -1,3 +1,4 @@
+console.log(gsap)
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 
@@ -158,8 +159,10 @@ function animate() {
 
       if (dist - enemy.radius - laser.radius < 1) {
 
-        if (enemy.radius > 10) {
-          enemy.radius -= 10
+        if (enemy.radius - 10 > 5) {
+          gsap.to(enemy, {
+            radius: enemy.radius - 10
+          })
           setTimeout(() => {
             lasers.splice(laserIndex, 1)
           }, 0)
