@@ -124,10 +124,23 @@ let animationId
 
 function animate() {
   animationId = requestAnimationFrame(animate)
-  c.clearRect(0, 0, canvas.width, canvas.height)
+  c.fillStyle = 'rgba(0, 0, 0, 0.1)'
+  c.fillRect(0, 0, canvas.width, canvas.height)
   player.draw()
-  lasers.forEach(laser =>{
+  lasers.forEach((laser, index) =>{
     laser.update()
+
+    // remove lasers from edge of screen
+    if(
+    laser.x + laser.radius < 0 ||
+    laser.x - laser.radius > canvas.width ||
+    laser.y + laser.radius < 0 ||
+    laser.y - laser.radius > canvas.height
+    ) {
+      setTimeout(() => {
+        lasers.splice(index, 1)
+      }, 0)
+    }
   })
   // detect hit/ hit by laser
   enemies.forEach((enemy, index) => {
