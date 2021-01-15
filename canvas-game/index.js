@@ -120,8 +120,10 @@ function spawnEnemies() {
 }
 // => end create enemy
 
+let animationId
+
 function animate() {
-  requestAnimationFrame(animate)
+  animationId = requestAnimationFrame(animate)
   c.clearRect(0, 0, canvas.width, canvas.height)
   player.draw()
   lasers.forEach(laser =>{
@@ -130,6 +132,11 @@ function animate() {
   // detect hit/ hit by laser
   enemies.forEach((enemy, index) => {
     enemy.update()
+
+    const dist = Math.hypot(player.x - enemy.x, player.y - enemy.y)
+    if (dist - enemy.radius - player.radius < 1) {
+      cancelAnimationFrame(animationId)
+    }
 
     lasers.forEach((laser, laserIndex) => {
       const dist = Math.hypot(laser.x - enemy.x, laser.y - enemy.y)
