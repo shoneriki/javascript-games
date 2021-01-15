@@ -1,3 +1,4 @@
+console.log(gsap)
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 
@@ -85,7 +86,7 @@ class Enemy {
 const x = canvas.width / 2
 const y = canvas.height / 2
 
-const player = new Player(x, y, 30, 'purple')
+const player = new Player(x, y, 10, 'white')
 const lasers = []
 
 
@@ -105,7 +106,7 @@ function spawnEnemies() {
       x = Math.random() * canvas.width
       y = Math.random() < 0.5 ? 0 - radius : canvas.height + radius
     }
-    const color = 'green'
+    const color = `hsl(${Math.random() * 360}, 50%, 50%)`
 
     const angle = Math.atan2(
     canvas.height / 2 - y,
@@ -124,16 +125,31 @@ let animationId
 
 function animate() {
   animationId = requestAnimationFrame(animate)
-  c.clearRect(0, 0, canvas.width, canvas.height)
+  c.fillStyle = 'rgba(0, 0, 0, 0.1)'
+  c.fillRect(0, 0, canvas.width, canvas.height)
   player.draw()
-  lasers.forEach(laser =>{
+  lasers.forEach((laser, index) =>{
     laser.update()
+
+    // remove lasers from edge of screen
+    if(
+    laser.x + laser.radius < 0 ||
+    laser.x - laser.radius > canvas.width ||
+    laser.y + laser.radius < 0 ||
+    laser.y - laser.radius > canvas.height
+    ) {
+      setTimeout(() => {
+        lasers.splice(index, 1)
+      }, 0)
+    }
   })
   // detect hit/ hit by laser
   enemies.forEach((enemy, index) => {
     enemy.update()
 
     const dist = Math.hypot(player.x - enemy.x, player.y - enemy.y)
+
+    //when laser touches
     if (dist - enemy.radius - player.radius < 1) {
       cancelAnimationFrame(animationId)
     }
@@ -142,10 +158,20 @@ function animate() {
       const dist = Math.hypot(laser.x - enemy.x, laser.y - enemy.y)
 
       if (dist - enemy.radius - laser.radius < 1) {
-        setTimeout(() => {
-          enemies.splice(index, 1)
-          lasers.splice(laserIndex, 1)
-        }, 0)
+
+        if (enemy.radius - 10 > 5) {
+          gsap.to(enemy, {
+            radius: enemy.radius - 10
+          })
+          setTimeout(() => {
+            lasers.splice(laserIndex, 1)
+          }, 0)
+        } else {
+          setTimeout(() => {
+            enemies.splice(index, 1)
+            lasers.splice(laserIndex, 1)
+          }, 0)
+        }
       }
     })
   })
@@ -155,7 +181,7 @@ const laser = new Laser(
     canvas.width / 2,
     canvas.height / 2,
     5,
-    'red',
+    'white',
     {
       x: 1,
       y: 1
@@ -169,8 +195,8 @@ addEventListener('click', (event) => {
     event.clientX - canvas.width / 2
   )
   const velocity = {
-    x: Math.cos(angle),
-    y: Math.sin(angle)
+    x: Math.cos(angle) * 4,
+    y: Math.sin(angle) * 4
   }
     lasers.push(new Laser(
       canvas.width / 2, canvas.height / 2, 5, 'red',
@@ -185,9 +211,6 @@ spawnEnemies()
 
 
 
-// detect hit on player
-// remove projectiles that are off-screen
-// color game
 // shrink enemies when hit
 // create explosion for enemy when it dies
 // add score
