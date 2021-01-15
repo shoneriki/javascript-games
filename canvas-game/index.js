@@ -135,7 +135,7 @@ function animate() {
 
       if (dist - enemy.radius - laser.radius < 1) {
         enemies.splice(index, 1)
-        lasers.splice(laserIndex, 1)
+        lasers.splice(laserIndex, 1) 
       }
     })
   })
