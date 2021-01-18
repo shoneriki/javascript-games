@@ -17,7 +17,7 @@ setInterval(function(){
   var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
   var holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
   var cTop = -(500-characterTop);
-  if((characterTop>480) ||((blockLeft<20)&&(blockLeft>-50)&&((cTop>holeTop)||(cTop>holeTop+130)))){
+  if((characterTop>480) ||((blockLeft<20)&&(blockLeft>-50)&&((cTop<holeTop)||(cTop>holeTop+130)))){
     alert("Game over. Score: "+ (counter-1));
     character.style.top = 100 + "px";
     counter = 0;
