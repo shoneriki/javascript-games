@@ -4,14 +4,18 @@ var character = document.getElementById("character");
 var jumping = 0;
 
 hole.addEventListener('animationiteration', () => {
-  var random = Math.random() * 3;
-  var top = (random*100)+150;
-  hole.style.top = -(top) + "px";
+  var random = -((Math.random() * 300)+150);
+  hole.style.top = random +"px";
 });
 setInterval(function(){
   var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+  console.log(window.getComputedStyle(character).getPropertyValue("top"))
   if(jumping==0){
     character.style.top = (characterTop +3) + "px";
+  }
+  if(characterTop>480){
+    alert("Game over.");
+    character.style.top = 100 + "px";
   }
 },10);
 
