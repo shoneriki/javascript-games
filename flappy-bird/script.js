@@ -2,23 +2,29 @@ var block = document.getElementById("block");
 var hole = document.getElementById("hole");
 var character = document.getElementById("character");
 var jumping = 0;
+var counter = 0;
 
 hole.addEventListener('animationiteration', () => {
   var random = -((Math.random() * 300)+150);
   hole.style.top = random +"px";
+  counter++;
 });
 setInterval(function(){
   var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-  console.log(window.getComputedStyle(character).getPropertyValue("top"))
   if(jumping==0){
     character.style.top = (characterTop +3) + "px";
   }
-  if(characterTop>480){
-    alert("Game over.");
+  var blockLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
+  var holeTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+  var cTop = -(500-characterTop);
+  if((characterTop>480) ||((blockLeft<20)&&(blockLeft>-50)&&((cTop>holeTop)||(cTop>holeTop+130)))){
+    alert("Game over. Score: "+ counter);
     character.style.top = 100 + "px";
+    counter = 0;
   }
 },10);
 
+// bird jumps
   function jump(){
     jumping = 1;
     let jumpCount = 0;
@@ -38,9 +44,8 @@ setInterval(function(){
 
 
 
-// bird jumps
+
 // if bird goes through hole logic
-// timer? score?
 // game over/you lose
   // if bird hits block edge
   // if bird hits ground
