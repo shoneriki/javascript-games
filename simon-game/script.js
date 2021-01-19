@@ -31,18 +31,22 @@ const flash = panel => {
       );
       setTimeout(() => {
         resolve();
-      })
+      }, 250);
     }, 1000);
   });
 };
 
 let canClick = false;
-const panelClicked = panel => {
+
+const panelClicked = panelClicked => {
   if(!canClick) return;
   const expectedPanel = sequenceToGuess.shift();
   if (expectedPanel === panelClicked) {
     if(sequenceToGuess.length === 0) {
       // start new round
+      sequence.push(getRandomPanel());
+      sequenceToGuess = [...sequence];
+      startFlashing();
       }
   } else {
       // end game
@@ -50,20 +54,12 @@ const panelClicked = panel => {
   }
 };
 
-
-const main = async () => {
+const startFlashing = async () => {
+  canClick = false;
   for(const panel of sequence) {
     await flash(panel);
   }
   canClick = true;
-};
+}
 
-main();
-// game lose logic
-// if you click wrong panel, game over
-
-// counter for score?
-// panel sequence mastery as score
-
-// panels flash in same order with additional flashes added
-// if correct panel clicked
+startFlashing();
