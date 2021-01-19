@@ -11,7 +11,7 @@ const sequence =[
   topRight,
 ];
 
-const flash = (panel) => {
+const flash = panel => {
   return new Promise((resolve,reject) => {
     panel.className += ' active';
     setTimeout(() => {

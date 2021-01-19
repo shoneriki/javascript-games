@@ -25,11 +25,11 @@ body{
 }
 .top-right-panel{
   border-top-right-radius: 100%;
-  background-color: yellow;
+  background-color: green;
 }
 .top-left-panel{
   border-top-left-radius: 100%;
-  background-color: green;
+  background-color: yellow;
 }
 .active{
   background-color: white;
