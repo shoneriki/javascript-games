@@ -4,13 +4,25 @@ const topRight = document.querySelector(".top-right-panel");
 const bottomLeft = document.querySelector(".bottom-left-panel");
 const bottomRight = document.querySelector(".bottom-right-panel");
 
+const getRandomPanel = () => {
+  const panels = [
+    topLeft,
+    topRight,
+    bottomLeft,
+    bottomRight
+  ];
+  return panels[parseInt(Math.random() * panels.length)];
+};
+
 const sequence =[
-  topLeft,
-  bottomRight,
-  bottomLeft,
-  topRight,
+  getRandomPanel(),
+  getRandomPanel(),
+  getRandomPanel(),
+  getRandomPanel(),
 ];
 
+
+// panel flashes every second in random sequence
 const flash = panel => {
   return new Promise((resolve,reject) => {
     panel.className += ' active';
@@ -37,6 +49,4 @@ main();
 // counter for score?
 // panel sequence mastery as score
 
-// panel flashes every second in random sequence
 // panels flash in same order with additional flashes added
-// panel
