@@ -16,10 +16,8 @@ const getRandomPanel = () => {
 
 const sequence =[
   getRandomPanel(),
-  getRandomPanel(),
-  getRandomPanel(),
-  getRandomPanel(),
 ];
+let sequenceToGuess = [...sequence];
 
 
 // panel flashes every second in random sequence
@@ -31,15 +29,33 @@ const flash = panel => {
         ' active',
         ''
       );
-      resolve();
-    }, 1000)
+      setTimeout(() => {
+        resolve();
+      })
+    }, 1000);
   });
 };
+
+let canClick = false;
+const panelClicked = panel => {
+  if(!canClick) return;
+  const expectedPanel = sequenceToGuess.shift();
+  if (expectedPanel === panelClicked) {
+    if(sequenceToGuess.length === 0) {
+      // start new round
+      }
+  } else {
+      // end game
+    alert('game over');
+  }
+};
+
 
 const main = async () => {
   for(const panel of sequence) {
     await flash(panel);
   }
+  canClick = true;
 };
 
 main();
@@ -50,3 +66,4 @@ main();
 // panel sequence mastery as score
 
 // panels flash in same order with additional flashes added
+// if correct panel clicked
