@@ -9,15 +9,15 @@ const sequence =[
   bottomRight,
   bottomLeft,
   topRight,
-]
+];
 
 const flash = (panel) => {
   return new Promise((resolve,reject) => {
     panel.className += ' active';
     setTimeout(() => {
       panel.className = panel.className.replace(
-      ' active',
-      ''
+        ' active',
+        ''
       );
       resolve();
     }, 1000)

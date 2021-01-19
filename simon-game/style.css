@@ -12,9 +12,27 @@ body{
 
 .panel:hover {
   /* border: 1px solid red; */
-  box-shadow: 0px 0px 10 red;
   box-shadow: inset 0px 0px 0px 4px cyan;
   box-sizing: border-box;
+}
+.bottom-right-panel{
+  border-bottom-right-radius: 100%;
+  background-color: red;
+}
+.bottom-left-panel{
+  border-bottom-left-radius: 100%;
+  background-color: blue ;
+}
+.top-right-panel{
+  border-top-right-radius: 100%;
+  background-color: yellow;
+}
+.top-left-panel{
+  border-top-left-radius: 100%;
+  background-color: green;
+}
+.active{
+  background-color: white;
 }
 .center {
   display: inline-block;
@@ -25,26 +43,4 @@ body{
   background-color: black;
   top: 135px;
   left: 540px;
-}
-
-.active{
-  background-color: white;
-}
-
-.top-left-panel{
-  background-color: green;
-  border-top-left-radius: 100%;
-}
-.top-right-panel{
-  background-color: yellow;
-  border-top-right-radius: 100%;
-}
-
-.bottom-right-panel{
-  border-bottom-right-radius: 100%;
-  background-color: red;
-}
-.bottom-left-panel{
-  border-bottom-left-radius: 100%;
-  background-color: blue ;
 }
