@@ -20,7 +20,6 @@ const sequence =[
 let sequenceToGuess = [...sequence];
 
 
-// panel flashes every second in random sequence
 const flash = panel => {
   return new Promise((resolve,reject) => {
     panel.className += ' active';
