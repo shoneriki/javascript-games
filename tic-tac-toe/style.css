@@ -63,6 +63,8 @@ body {
   border-bottom: none;
 }
 
+/* X, circle markers */
+
 /* 8.1 */
 .cell.x,
 .cell.circle {
@@ -71,13 +73,15 @@ body {
 
 /* 8.1.1 */
 .cell.x::before,
-.cell.x::after {
+.cell.x::after,
+.cell.circle::before {
   background-color: black;
 }
 
 /* 8.2 */
 .board.x .cell:not(.x):not(.circle):hover::before,
-.board.x .cell:not(.x):not(.circle):hover::after{
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before {
   background-color: lightgrey;
 }
 
@@ -106,21 +110,24 @@ body {
 
 /* 12 */
 .cell.circle::before,
-.cell.circle::after {
-  background-color: black;
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
   content: '';
   position: absolute;
   border-radius: 50%;
 }
 
 /* 13 */
-.cell.circle::before{
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before{
   width: var(--mark-size);
   height: var(--mark-size);
 }
 
 /* 14 */
-.cell.circle::after{
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after {
   width: calc(var(--mark-size) * .8);
   height: calc(var(--mark-size) * .8);
   background-color: #EEEEEE;
