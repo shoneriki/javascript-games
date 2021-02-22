@@ -36,6 +36,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  cursor: pointer;
 }
 
 /* 5 */
@@ -60,6 +61,12 @@ body {
 .cell:nth-child(8),
 .cell:nth-child(7) {
   border-bottom: none;
+}
+
+/* 8.1 */
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
 }
 
 /* 9 */
