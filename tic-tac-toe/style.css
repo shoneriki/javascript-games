@@ -6,6 +6,7 @@
 /* 1a */
 :root {
   --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * .9);
 }
 
 /* 2 */
@@ -20,6 +21,8 @@ body {
   display: grid;
   justify-content: center;
   align-content: center;
+  justify-items: center;
+  align-items: center;
   grid-template-columns: repeat(3, auto);
 }
 
@@ -27,6 +30,5 @@ body {
 .cell {
   height: var(--cell-size);
   width: var(--cell-size);
-  background-color: black;
-  border: 1px solid white;
+  border: 1px solid black;
 }
