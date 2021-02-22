@@ -35,6 +35,10 @@ body {
   height: var(--cell-size);
   width: var(--cell-size);
   border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 /* 5 */
@@ -49,12 +53,34 @@ body {
   border-left: none;
 }
 
+/* 7 */
 .cell:nth-child(3n + 3) {
   border-right: none;
 }
 
+/* 8 */
 .cell:last-child,
 .cell:nth-child(8),
 .cell:nth-child(7) {
   border-bottom: none;
+}
+
+/* 9 */
+.cell.x::before,
+.cell.x::after {
+  background-color: black;
+  content: '';
+  position: absolute;
+  width: calc(var(--mark-size) * .15);
+  height: var(--mark-size);
+}
+
+/* 10 */
+.cell.x::before {
+  transform: rotate(45deg);
+}
+
+/* 11 */
+.cell.x::after {
+  transform: rotate(-45deg);
 }
