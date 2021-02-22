@@ -69,9 +69,16 @@ body {
   cursor: not-allowed;
 }
 
+/* 8.2 */
+.board.x .cell:hover{
+
+}
+
 /* 9 */
 .cell.x::before,
-.cell.x::after {
+.cell.x::after,
+.board.x .cell:hover::before,
+.board.x .cell:hover::after {
   background-color: black;
   content: '';
   position: absolute;
@@ -80,12 +87,14 @@ body {
 }
 
 /* 10 */
-.cell.x::before {
+.cell.x::before,
+.board.x .cell:hover::before{
   transform: rotate(45deg);
 }
 
 /* 11 */
-.cell.x::after {
+.cell.x::after,
+.board.x .cell:hover::after {
   transform: rotate(-45deg);
 }
 
