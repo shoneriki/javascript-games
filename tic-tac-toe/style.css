@@ -12,10 +12,7 @@
 /* 2 */
 body {
   margin: 0;
-  background-color: #eec0c6;
-  background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
-
-
+  background-color: #EEEEEE;
 }
 
 /* 3 */
@@ -83,4 +80,26 @@ body {
 /* 11 */
 .cell.x::after {
   transform: rotate(-45deg);
+}
+
+/* 12 */
+.cell.circle::before,
+.cell.circle::after {
+  background-color: black;
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* 13 */
+.cell.circle::before{
+  width: var(--mark-size);
+  height: var(--mark-size);
+}
+
+/* 14 */
+.cell.circle::after{
+  width: calc(var(--mark-size) * .8);
+  height: calc(var(--mark-size) * .8);
+  background-color: #EEEEEE;
 }
