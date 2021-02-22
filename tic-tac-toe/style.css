@@ -3,6 +3,11 @@
   box-sizing: border-box;
 }
 
+/* 1a */
+:root {
+  --cell-size: 100px;
+}
+
 /* 2 */
 body {
   margin: 0;
@@ -12,14 +17,16 @@ body {
 .board {
   width: 100vw;
   height: 100vh;
-  display:grid;
+  display: grid;
   justify-content: center;
   align-content: center;
+  grid-template-columns: repeat(3, auto);
 }
 
 /* 4 */
 .cell {
-  height: 100px;
-  width: 100px;
+  height: var(--cell-size);
+  width: var(--cell-size);
   background-color: black;
+  border: 1px solid white;
 }
