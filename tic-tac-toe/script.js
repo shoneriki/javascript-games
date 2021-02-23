@@ -24,6 +24,9 @@ restartButton.addEventListener('click', startGame)
 // 0.1
 function startGame() {
   cellElements.forEach(cell => {
+  cell.classList.remove(X_CLASS)
+  cell.classList.remove(CIRCLE_CLASS)
+  cell.removeEventListener('click', handleClick)
   circleTurn = false
   cell.addEventListener('click', handleClick, { once: true })
   })
