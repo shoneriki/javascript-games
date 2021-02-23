@@ -37,21 +37,31 @@ function handleClick(e) {
   // 1.2 check for win
   if (checkWin(currentClass)) {
     endGame(false)
+    // 1.3 check for draw below
+  } else if (isDraw()) {
+    endGame(true)
+  } else {
+    // 1.4 swap turns and hover (cut and pasted from below)
+    swapTurns()
+    setBoardHoverClass()
   }
-  // 1.3 check for draw
-  // 1.4 swap turns
-  swapTurns()
-  setBoardHoverClass()
 }
 
 // 1.1
 function endGame(draw) {
   if(draw) {
-
+    winningMessageTextElement.innerText = 'Draw!'
   } else {
     winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
   }
   winningMessageElement.classList.add('show')
+}
+
+// 1.2
+function isDraw() {
+  return [...cellElements].every(cell => {
+    return cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS)
+  })
 }
 
 // 2
