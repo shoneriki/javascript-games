@@ -4,9 +4,17 @@ const cellElements = document.querySelectorAll('[data-cell]')
 const board = document.getElementById('board')
 let circleTurn
 
-cellElements.forEach(cell => {
+startGame()
+
+
+// 0.1
+function startGame() {
+  cellElements.forEach(cell => {
+  circleTurn = false
   cell.addEventListener('click', handleClick, { once: true })
-})
+  })
+  setBoardHoverClass()
+}
 
 // 1
 function handleClick(e) {
